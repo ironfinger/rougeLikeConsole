@@ -1,7 +1,7 @@
 ﻿Module Module1
     Dim landscapeSizeY As Integer 'Theese variables are used to store the size of the grid.
     Dim landscapeSizeX As Integer
-    Dim gridArray(,) As Integer
+    Dim gridArray(5, 5) As Integer
 
     Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours. 
     Dim colour02 As Integer
@@ -33,6 +33,7 @@
 
         landscapeSizeY = randomNumber.Next(0, 20) 'This generates a number to be used for get the size of the grid. 
         landscapeSizeX = randomNumber.Next(0, 20)
+        ReDim gridArray(landscapeSizeY, landscapeSizeX)
 
         colour01 = randomNumber.Next(0, 6) 'This genereates a number to reference a colour for the colour pallete. 
         colour02 = randomNumber.Next(0, 6)
@@ -75,7 +76,7 @@
         For y = 0 To landscapeSizeY
             For x = 0 To landscapeSizeX
                 colourChoice = randomNumber.Next(0, 5) 'This allows the program to pick different colours of the three colours we have created. 
-
+                gridArray(y, x) = colourChoice
                 If colourChoice = 1 Then
                     If colour01 = 1 Then
                         Console.ForegroundColor = ConsoleColor.Blue
@@ -152,6 +153,15 @@
             Next
             Console.WriteLine() 'This allows the grid to go onto the next line to prevent the grid from being all on one line. 
         Next
-
+        displayNumberArray()
+    End Sub
+    Sub displayNumberArray()
+        For y = 0 To landscapeSizeY
+            For x = 0 To landscapeSizeX
+                Console.ForegroundColor = ConsoleColor.DarkGray
+                Console.Write("[" & gridArray(y, x) & "]")
+            Next
+            Console.WriteLine()
+        Next
     End Sub
 End Module
