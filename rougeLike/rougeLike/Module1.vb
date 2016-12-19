@@ -1,6 +1,7 @@
 ﻿Module Module1
     Dim landscapeSizeY As Integer 'Theese variables are used to store the size of the grid.
     Dim landscapeSizeX As Integer
+    Dim gridArray(,) As Integer
 
     Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours. 
     Dim colour02 As Integer
@@ -8,6 +9,42 @@
 
     Dim colourChoose As Integer
     Sub Main()
+        Dim userInput As Integer
+        Console.WriteLine("Do you want to see different variations or just one?")
+        Console.WriteLine("1 = just one | 2 = terrian loop")
+        userInput = Console.ReadLine()
+
+        If userInput = 2 Then
+            terrianLoop()
+        End If
+
+        procedurealGenerationNumbers()
+        displayTerrian()
+
+        Console.ReadLine()
+    End Sub
+    Sub procedurealGenerationNumbers()
+        'Generate the lanscape size.
+        'Generate the colour pallete.
+
+        Dim randomNumber As New Random()
+
+        landscapeSizeY = randomNumber.Next(0, 20) 'This generates a number to be used for get the size of the grid. 
+        landscapeSizeX = randomNumber.Next(0, 20)
+
+        colour01 = randomNumber.Next(0, 6) 'This genereates a number to reference a colour for the colour pallete. 
+        colour02 = randomNumber.Next(0, 6)
+        colour03 = randomNumber.Next(0, 6)
+
+        If colour01 = colour02 Or colour01 = colour03 Then 'Just making sure no two variables are the same. 
+            colour01 = randomNumber.Next(0, 6)
+        ElseIf colour02 = colour01 Or colour02 = colour03 Then
+            colour02 = randomNumber.Next(0, 6)
+        ElseIf colour03 = colour01 Or colour03 = colour02 Then
+            colour03 = randomNumber.Next(0, 6)
+        End If
+    End Sub
+    Sub terrianLoop() 'Just a way to see all of the different kind of grids we can get.
         Dim continueGeneration As Boolean = True
         While continueGeneration = True 'This loop is just to test to see the different variations I can get for the grid. 
             procedurealGenerationNumbers()
@@ -26,28 +63,6 @@
             Console.WriteLine()
             Console.WriteLine("_________________________________________________________")
         End While
-        Console.ReadLine()
-    End Sub
-    Sub procedurealGenerationNumbers()
-        'Generate the lanscape size.
-        'Generate the colour pallete.
-
-        Dim randomNumber As New Random()
-
-        landscapeSizeY = randomNumber.Next(0, 10) 'This generates a number to be used for get the size of the grid. 
-        landscapeSizeX = randomNumber.Next(0, 10)
-
-        colour01 = randomNumber.Next(0, 6) 'This genereates a number to reference a colour for the colour pallete. 
-        colour02 = randomNumber.Next(0, 6)
-        colour03 = randomNumber.Next(0, 6)
-
-        If colour01 = colour02 Or colour01 = colour03 Then 'Just making sure no two variables are the same. 
-            colour01 = randomNumber.Next(0, 6)
-        ElseIf colour02 = colour01 Or colour02 = colour03 Then
-            colour02 = randomNumber.Next(0, 6)
-        ElseIf colour03 = colour01 Or colour03 = colour02 Then
-            colour03 = randomNumber.Next(0, 6)
-        End If
     End Sub
     Sub displayTerrian()
         Dim randomNumber As New Random()
@@ -56,6 +71,7 @@
         For y = 0 To landscapeSizeY
             For x = 0 To landscapeSizeX
                 colourChoice = randomNumber.Next(0, 3) 'This allows the program to pick different colours of the three colours we have created. 
+
                 If colourChoice = 1 Then
                     If colour01 = 1 Then
                         Console.ForegroundColor = ConsoleColor.Blue
@@ -104,5 +120,6 @@
             Next
             Console.WriteLine() 'This allows the grid to go onto the next line to prevent the grid from being all on one line. 
         Next
+
     End Sub
 End Module
