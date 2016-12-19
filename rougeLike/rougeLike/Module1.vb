@@ -6,6 +6,8 @@
     Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours. 
     Dim colour02 As Integer
     Dim colour03 As Integer
+    Dim colour04 As Integer
+    Dim colour05 As Integer
 
     Dim colourChoose As Integer
     Sub Main()
@@ -35,6 +37,8 @@
         colour01 = randomNumber.Next(0, 6) 'This genereates a number to reference a colour for the colour pallete. 
         colour02 = randomNumber.Next(0, 6)
         colour03 = randomNumber.Next(0, 6)
+        colour04 = randomNumber.Next(0, 6)
+        colour05 = randomNumber.Next(0, 6)
 
         If colour01 = colour02 Or colour01 = colour03 Then 'Just making sure no two variables are the same. 
             colour01 = randomNumber.Next(0, 6)
@@ -70,7 +74,7 @@
 
         For y = 0 To landscapeSizeY
             For x = 0 To landscapeSizeX
-                colourChoice = randomNumber.Next(0, 3) 'This allows the program to pick different colours of the three colours we have created. 
+                colourChoice = randomNumber.Next(0, 5) 'This allows the program to pick different colours of the three colours we have created. 
 
                 If colourChoice = 1 Then
                     If colour01 = 1 Then
@@ -112,6 +116,34 @@
                     ElseIf colour03 = 5 Then
                         Console.ForegroundColor = ConsoleColor.White
                     ElseIf colour03 = 6 Then
+                        Console.ForegroundColor = ConsoleColor.Magenta
+                    End If
+                ElseIf colourChoice = 4 Then
+                    If colour04 = 1 Then
+                        Console.ForegroundColor = ConsoleColor.Blue
+                    ElseIf colour04 = 2 Then
+                        Console.ForegroundColor = ConsoleColor.Green
+                    ElseIf colour04 = 3 Then
+                        Console.ForegroundColor = ConsoleColor.Red
+                    ElseIf colour04 = 4 Then
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                    ElseIf colour04 = 5 Then
+                        Console.ForegroundColor = ConsoleColor.White
+                    ElseIf colour04 = 6 Then
+                        Console.ForegroundColor = ConsoleColor.Magenta
+                    End If
+                ElseIf colourChoice = 5 Then
+                    If colour05 = 1 Then
+                        Console.ForegroundColor = ConsoleColor.Blue
+                    ElseIf colour05 = 2 Then
+                        Console.ForegroundColor = ConsoleColor.Green
+                    ElseIf colour05 = 3 Then
+                        Console.ForegroundColor = ConsoleColor.Red
+                    ElseIf colour05 = 4 Then
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                    ElseIf colour05 = 5 Then
+                        Console.ForegroundColor = ConsoleColor.White
+                    ElseIf colour05 = 6 Then
                         Console.ForegroundColor = ConsoleColor.Magenta
                     End If
                 End If
