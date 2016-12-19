@@ -9,9 +9,10 @@
     Dim colourChoose As Integer
     Sub Main()
         Dim continueGeneration As Boolean = True
-        While continueGeneration = True
+        While continueGeneration = True 'This loop is just to test to see the different variations I can get for the grid. 
             procedurealGenerationNumbers()
             displayTerrian()
+            'The code below is just used as a timer until the next grid is generated and is used as a seperator for the grids. 
             System.Threading.Thread.Sleep(100)
             Console.Write("#")
             System.Threading.Thread.Sleep(100)
@@ -28,8 +29,8 @@
         Console.ReadLine()
     End Sub
     Sub procedurealGenerationNumbers()
-        'Generate the lanscape size
-        'Generate the colour pallete
+        'Generate the lanscape size.
+        'Generate the colour pallete.
 
         Dim randomNumber As New Random()
 
@@ -40,7 +41,7 @@
         colour02 = randomNumber.Next(0, 6)
         colour03 = randomNumber.Next(0, 6)
 
-        If colour01 = colour02 Or colour01 = colour03 Then
+        If colour01 = colour02 Or colour01 = colour03 Then 'Just making sure no two variables are the same. 
             colour01 = randomNumber.Next(0, 6)
         ElseIf colour02 = colour01 Or colour02 = colour03 Then
             colour02 = randomNumber.Next(0, 6)
@@ -51,9 +52,10 @@
     Sub displayTerrian()
         Dim randomNumber As New Random()
         Dim colourChoice As Integer
+
         For y = 0 To landscapeSizeY
             For x = 0 To landscapeSizeX
-                colourChoice = randomNumber.Next(0, 3)
+                colourChoice = randomNumber.Next(0, 3) 'This allows the program to pick different colours of the three colours we have created. 
                 If colourChoice = 1 Then
                     If colour01 = 1 Then
                         Console.ForegroundColor = ConsoleColor.Blue
@@ -100,7 +102,7 @@
                 Console.Write("[ ]")
                 System.Threading.Thread.Sleep(1)
             Next
-            Console.WriteLine()
+            Console.WriteLine() 'This allows the grid to go onto the next line to prevent the grid from being all on one line. 
         Next
     End Sub
 End Module

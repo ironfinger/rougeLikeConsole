@@ -8,3 +8,7 @@ C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj
 C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.exe
 C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.xml
 C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.pdb
+C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\bin\Debug\rougeLike.exe.config
+C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.exe
+C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.xml
+C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.pdb
