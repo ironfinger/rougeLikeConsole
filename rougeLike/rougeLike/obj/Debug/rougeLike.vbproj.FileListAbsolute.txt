@@ -1,0 +1,10 @@
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\bin\Debug\rougeLike.exe.config
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\bin\Debug\rougeLike.exe
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\bin\Debug\rougeLike.pdb
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\bin\Debug\rougeLike.xml
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.vbprojResolveAssemblyReference.cache
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.Resources.resources
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.vbproj.GenerateResource.Cache
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.exe
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.xml
+C:\Users\rob_h_000\Documents\Visual Studio 2015\Projects\rougeLike\rougeLike\obj\Debug\rougeLike.pdb
