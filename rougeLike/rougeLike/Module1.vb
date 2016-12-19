@@ -1,4 +1,6 @@
 ﻿Module Module1
+    Dim gameActive As Boolean = True 'This decides whether the game should continue or whether it shall stop. 
+
     Dim landscapeSizeY As Integer 'Theese variables are used to store the size of the grid.
     Dim landscapeSizeX As Integer
     Dim gridArray(5, 5) As Integer
@@ -16,13 +18,23 @@
         Console.WriteLine("1 = just one | 2 = terrian loop")
         userInput = Console.ReadLine()
 
-        If userInput = 2 Then
+        If userInput = 1 Then
+            procedurealGenerationNumbers()
+            displayTerrian()
+            Console.WriteLine("Press Enter when your ready.")
+            Console.ReadLine()
+            gameLoop()
+        ElseIf userInput = 2 Then
             terrianLoop()
         End If
-
-        procedurealGenerationNumbers()
-        displayTerrian()
-        reDrawGrid()
+        Console.ReadLine()
+    End Sub
+    Sub gameLoop()
+        While gameActive = True
+            Console.Clear()
+            reDrawGrid()
+            Console.WriteLine("It has been redrawn")
+        End While
         Console.ReadLine()
     End Sub
     Sub procedurealGenerationNumbers()
