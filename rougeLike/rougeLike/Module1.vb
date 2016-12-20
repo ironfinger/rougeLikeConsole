@@ -1,9 +1,11 @@
 ﻿Module Module1
     Dim gameActive As Boolean = True 'This decides whether the game should continue or whether it shall stop. 
+    Dim firstLoop As Boolean = True 'This is used in order to create the players location once. 
 
     Dim landscapeSizeY As Integer 'Theese variables are used to store the size of the grid.
     Dim landscapeSizeX As Integer
     Dim gridArray(5, 5) As Integer
+    Dim playerArray(5, 5) As Integer
 
     Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours. 
     Dim colour02 As Integer
@@ -33,7 +35,7 @@
         While gameActive = True
             Console.Clear()
             reDrawGrid()
-            Console.WriteLine("It has been redrawn")
+            playerMovement()
         End While
         Console.ReadLine()
     End Sub
@@ -46,6 +48,7 @@
         landscapeSizeY = randomNumber.Next(0, 20) 'This generates a number to be used for get the size of the grid. 
         landscapeSizeX = randomNumber.Next(0, 20)
         ReDim gridArray(landscapeSizeY, landscapeSizeX)
+        ReDim playerArray(landscapeSizeY, landscapeSizeX)
 
         colour01 = randomNumber.Next(1, 6) 'This genereates a number to reference a colour for the colour pallete. 
         colour02 = randomNumber.Next(1, 6)
@@ -177,6 +180,10 @@
         Next
     End Sub
     Sub reDrawGrid()
+        If firstLoop = True Then
+            playerArray(0, 0) = 6
+            firstLoop = False
+        End If
         For y = 0 To landscapeSizeY
             For x = 0 To landscapeSizeX
                 If gridArray(y, x) = 1 Then
@@ -249,23 +256,88 @@
                     ElseIf colour05 = 6 Then
                         Console.ForegroundColor = ConsoleColor.Magenta
                     End If
-                ElseIf gridArray(y, x) = 6 Then
-
                 End If
-                Console.Write("[ ]")
-                System.Threading.Thread.Sleep(1)
+
+                If playerArray(y, x) = 6 Then 'This if statement decides it the certain co-ordinate is a play or not. 
+                    Console.ForegroundColor = ConsoleColor.Cyan
+                    Console.Write("[0]")
+                Else 'If the co-ordinate isn't a player, then a blank cell will be drawn. 
+                    Console.Write("[ ]")
+                End If
             Next
             Console.WriteLine()
         Next
-        Console.WriteLine()
-        Console.WriteLine("Numbers")
-        Console.WriteLine()
-        For y = 0 To landscapeSizeY
-            For x = 0 To landscapeSizeX
-                Console.ForegroundColor = ConsoleColor.DarkGray
-                Console.Write("[" & gridArray(y, x) & "]")
-            Next
-            Console.WriteLine()
-        Next
+    End Sub
+    Sub playerMovement()
+        Dim playerLocationFound As Boolean = False
+        Console.WriteLine("-------------------")
+
+        Dim userInput As ConsoleKeyInfo
+        Dim didUserPressKey As Boolean = False
+        Do
+            userInput = Console.ReadKey(True)
+            If userInput.Key = ConsoleKey.D Then 'Move Right
+                While playerLocationFound = False
+                    For y = 0 To landscapeSizeY
+                        For x = 0 To landscapeSizeX
+                            If playerArray(y, x) = 6 Then
+                                playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
+                                x = x + 1 'This moves the co-ordinate to the right by 1. 
+                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+
+                                playerLocationFound = True 'This stops the while loop.
+                            End If
+                        Next
+                    Next
+                End While
+                didUserPressKey = True
+            ElseIf userInput.Key = ConsoleKey.A Then 'Move Left.
+                While playerLocationFound = False
+                    For y = 0 To landscapeSizeY
+                        For x = 0 To landscapeSizeX
+                            If playerArray(y, x) = 6 Then
+                                playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
+                                x = x - 1 'This moves the co-ordinate to the right by 1. 
+                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+
+                                playerLocationFound = True 'This stops the while loop.
+                            End If
+                        Next
+                    Next
+                End While
+                didUserPressKey = True
+            ElseIf userInput.Key = ConsoleKey.S Then 'Move Down.
+                While playerLocationFound = False
+                    For y = 0 To landscapeSizeY
+                        For x = 0 To landscapeSizeX
+                            If playerArray(y, x) = 6 Then
+                                playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
+                                y = y + 1 'This moves the co-ordinate to the right by 1. 
+                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+
+                                playerLocationFound = True 'This stops the while loop.
+                            End If
+                        Next
+                    Next
+                End While
+                didUserPressKey = True
+            ElseIf userInput.Key = ConsoleKey.W Then 'Move Up.
+                While playerLocationFound = False
+                    For y = 0 To landscapeSizeY
+                        For x = 0 To landscapeSizeX
+                            If playerArray(y, x) = 6 Then
+                                playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
+                                y = y - 1 'This moves the co-ordinate to the right by 1. 
+                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+
+                                playerLocationFound = True 'This stops the while loop.
+                            End If
+                        Next
+                    Next
+                End While
+                didUserPressKey = True
+            End If
+        Loop Until didUserPressKey = True
+        System.Threading.Thread.Sleep(50) 'This helps to reduce the grid from flickering. 
     End Sub
 End Module
