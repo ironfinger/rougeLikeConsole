@@ -7,7 +7,7 @@
     Dim gridArray(5, 5) As Integer
     Dim playerArray(5, 5) As Integer
 
-    Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours. 
+    Dim colour01 As Integer 'Theese varibles are used to store a reference number for the colours.
     Dim colour02 As Integer
     Dim colour03 As Integer
     Dim colour04 As Integer
@@ -18,7 +18,11 @@
         Dim userInput As Integer
         Console.WriteLine("Do you want to see different variations or just one?")
         Console.WriteLine("1 = just one | 2 = terrian loop")
-        userInput = Console.ReadLine()
+        Try 'This just makes sure that the program doesn't crash. 
+            userInput = Console.ReadLine() 'To try catch and make your program more stable.
+        Catch ex As Exception
+            userInput = 1 'I just made the program run the game as normal to make sure that the program doesn't crash.
+        End Try
 
         If userInput = 1 Then
             procedurealGenerationNumbers()
@@ -29,7 +33,6 @@
         ElseIf userInput = 2 Then
             terrianLoop()
         End If
-        Console.ReadLine()
     End Sub
     Sub gameLoop()
         While gameActive = True
@@ -56,12 +59,14 @@
         colour04 = randomNumber.Next(1, 6)
         colour05 = randomNumber.Next(1, 6)
 
-        If colour01 = colour02 Or colour01 = colour03 Then 'Just making sure no two variables are the same. 
+        If colour01 = colour02 Or colour01 = colour03 Or colour01 = colour04 Or colour01 = colour05 Then 'Just making sure no two variables are the same. 
             colour01 = randomNumber.Next(0, 6)
-        ElseIf colour02 = colour01 Or colour02 = colour03 Then
+        ElseIf colour02 = colour01 Or colour02 = colour03 Or colour02 = colour04 Or colour02 = colour05 Then
             colour02 = randomNumber.Next(0, 6)
-        ElseIf colour03 = colour01 Or colour03 = colour02 Then
+        ElseIf colour03 = colour01 Or colour03 = colour02 Or colour03 = colour04 Or colour03 = colour05 Then
             colour03 = randomNumber.Next(0, 6)
+        ElseIf colour04 = colour01 Or colour04 = colour02 Or colour04 = colour03 Or colour04 = colour05 Then
+            colour04 = randomNumber.Next(0, 6)
         End If
     End Sub
     Sub terrianLoop() 'Just a way to see all of the different kind of grids we can get.
@@ -282,9 +287,13 @@
                         For x = 0 To landscapeSizeX
                             If playerArray(y, x) = 6 Then
                                 playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
-                                x = x + 1 'This moves the co-ordinate to the right by 1. 
-                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
-
+                                x = x + 1 'This moves the co-ordinate to the right by 1.
+                                Try
+                                    playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+                                Catch ex As Exception
+                                    x = x - 1
+                                    playerArray(y, x) = 6
+                                End Try
                                 playerLocationFound = True 'This stops the while loop.
                             End If
                         Next
@@ -297,9 +306,13 @@
                         For x = 0 To landscapeSizeX
                             If playerArray(y, x) = 6 Then
                                 playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
-                                x = x - 1 'This moves the co-ordinate to the right by 1. 
-                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
-
+                                x = x - 1 'This moves the co-ordinate to the right by 1.
+                                Try
+                                    playerArray(y, x) = 6
+                                Catch ex As Exception
+                                    x = x + 1
+                                    playerArray(y, x) = 6
+                                End Try
                                 playerLocationFound = True 'This stops the while loop.
                             End If
                         Next
@@ -313,8 +326,12 @@
                             If playerArray(y, x) = 6 Then
                                 playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
                                 y = y + 1 'This moves the co-ordinate to the right by 1. 
-                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
-
+                                Try
+                                    playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+                                Catch ex As Exception
+                                    y = y - 1
+                                    playerArray(y, x) = 6
+                                End Try
                                 playerLocationFound = True 'This stops the while loop.
                             End If
                         Next
@@ -328,8 +345,12 @@
                             If playerArray(y, x) = 6 Then
                                 playerArray(y, x) = 0 'This makes the players old co-ordinate equal to 0. 
                                 y = y - 1 'This moves the co-ordinate to the right by 1. 
-                                playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
-
+                                Try
+                                    playerArray(y, x) = 6 'This now makes the new co-ordinate equal to 6.
+                                Catch ex As Exception
+                                    y = y + 1
+                                    playerArray(y, x) = 6
+                                End Try
                                 playerLocationFound = True 'This stops the while loop.
                             End If
                         Next
