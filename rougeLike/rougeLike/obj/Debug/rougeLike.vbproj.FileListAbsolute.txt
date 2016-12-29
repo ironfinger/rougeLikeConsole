@@ -18,3 +18,13 @@ C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeL
 C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.vbprojResolveAssemblyReference.cache
 C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.Resources.resources
 C:\Users\rob_h_000\Documents\GitHubStuffAndSomeOtherCrap\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.vbproj.GenerateResource.Cache
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\bin\Debug\rougeLike.exe.config
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.exe
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.xml
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.pdb
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\bin\Debug\rougeLike.exe
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\bin\Debug\rougeLike.pdb
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\bin\Debug\rougeLike.xml
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.vbprojResolveAssemblyReference.cache
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.Resources.resources
+D:\Programming\Repositories\rougeLikeConsole\rougeLike\rougeLike\obj\Debug\rougeLike.vbproj.GenerateResource.Cache

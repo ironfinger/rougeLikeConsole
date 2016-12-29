@@ -14,6 +14,11 @@
     Dim colour05 As Integer
 
     Dim colourChoose As Integer
+
+    Dim enemyAmount As Integer
+    Dim enemyLocationY As Integer
+    Dim enemyLocationX As Integer
+    Dim maxEnemyAmount As Integer = 5
     Sub Main()
         Dim userInput As Integer
         Console.WriteLine("Do you want to see different variations or just one?")
@@ -68,6 +73,14 @@
         ElseIf colour04 = colour01 Or colour04 = colour02 Or colour04 = colour03 Or colour04 = colour05 Then
             colour04 = randomNumber.Next(0, 6)
         End If
+
+        'Generate enemies. 
+        enemyAmount = randomNumber.Next(0, maxEnemyAmount)
+        For i = 0 To enemyAmount
+            enemyLocationY = randomNumber.Next(0, landscapeSizeY)
+            enemyLocationX = randomNumber.Next(0, landscapeSizeX)
+            playerArray(enemyLocationY, enemyLocationX) = 7
+        Next
     End Sub
     Sub terrianLoop() 'Just a way to see all of the different kind of grids we can get.
         Dim continueGeneration As Boolean = True
@@ -262,10 +275,85 @@
                         Console.ForegroundColor = ConsoleColor.Magenta
                     End If
                 End If
-
                 If playerArray(y, x) = 6 Then 'This if statement decides it the certain co-ordinate is a play or not. 
                     Console.ForegroundColor = ConsoleColor.Cyan
                     Console.Write("[0]")
+                ElseIf playerArray(y, x) = 7 Then 'This else if decides if the certain co-ordinate is an enemy or not. 
+                    Console.Write("[")
+                    Console.ForegroundColor = ConsoleColor.DarkRed
+                    Console.Write("0")
+                    If gridArray(y, x) = 1 Then
+                        If colour01 = 1 Then
+                            Console.ForegroundColor = ConsoleColor.Blue
+                        ElseIf colour01 = 2 Then
+                            Console.ForegroundColor = ConsoleColor.Green
+                        ElseIf colour01 = 3 Then
+                            Console.ForegroundColor = ConsoleColor.Red
+                        ElseIf colour01 = 4 Then
+                            Console.ForegroundColor = ConsoleColor.Yellow
+                        ElseIf colour01 = 5 Then
+                            Console.ForegroundColor = ConsoleColor.White
+                        ElseIf colour01 = 6 Then
+                            Console.ForegroundColor = ConsoleColor.Magenta
+                        End If
+                    ElseIf gridArray(y, x) = 2 Then
+                        If colour02 = 1 Then
+                            Console.ForegroundColor = ConsoleColor.Blue
+                        ElseIf colour02 = 2 Then
+                            Console.ForegroundColor = ConsoleColor.Green
+                        ElseIf colour02 = 3 Then
+                            Console.ForegroundColor = ConsoleColor.Red
+                        ElseIf colour02 = 4 Then
+                            Console.ForegroundColor = ConsoleColor.Yellow
+                        ElseIf colour02 = 5 Then
+                            Console.ForegroundColor = ConsoleColor.White
+                        ElseIf colour02 = 6 Then
+                            Console.ForegroundColor = ConsoleColor.Magenta
+                        End If
+                    ElseIf gridArray(y, x) = 3 Then
+                        If colour03 = 1 Then
+                            Console.ForegroundColor = ConsoleColor.Blue
+                        ElseIf colour03 = 2 Then
+                            Console.ForegroundColor = ConsoleColor.Green
+                        ElseIf colour03 = 3 Then
+                            Console.ForegroundColor = ConsoleColor.Red
+                        ElseIf colour03 = 4 Then
+                            Console.ForegroundColor = ConsoleColor.Yellow
+                        ElseIf colour03 = 5 Then
+                            Console.ForegroundColor = ConsoleColor.White
+                        ElseIf colour03 = 6 Then
+                            Console.ForegroundColor = ConsoleColor.Magenta
+                        End If
+                    ElseIf gridArray(y, x) = 4 Then
+                        If colour04 = 1 Then
+                            Console.ForegroundColor = ConsoleColor.Blue
+                        ElseIf colour04 = 2 Then
+                            Console.ForegroundColor = ConsoleColor.Green
+                        ElseIf colour04 = 3 Then
+                            Console.ForegroundColor = ConsoleColor.Red
+                        ElseIf colour04 = 4 Then
+                            Console.ForegroundColor = ConsoleColor.Yellow
+                        ElseIf colour04 = 5 Then
+                            Console.ForegroundColor = ConsoleColor.White
+                        ElseIf colour04 = 6 Then
+                            Console.ForegroundColor = ConsoleColor.Magenta
+                        End If
+                    ElseIf gridArray(y, x) = 5 Then
+                        If colour05 = 1 Then
+                            Console.ForegroundColor = ConsoleColor.Blue
+                        ElseIf colour05 = 2 Then
+                            Console.ForegroundColor = ConsoleColor.Green
+                        ElseIf colour05 = 3 Then
+                            Console.ForegroundColor = ConsoleColor.Red
+                        ElseIf colour05 = 4 Then
+                            Console.ForegroundColor = ConsoleColor.Yellow
+                        ElseIf colour05 = 5 Then
+                            Console.ForegroundColor = ConsoleColor.White
+                        ElseIf colour05 = 6 Then
+                            Console.ForegroundColor = ConsoleColor.Magenta
+                        End If
+                    End If
+                    Console.Write("]")
                 Else 'If the co-ordinate isn't a player, then a blank cell will be drawn. 
                     Console.Write("[ ]")
                 End If
