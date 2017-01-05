@@ -19,6 +19,8 @@
     Dim enemyLocationY As Integer
     Dim enemyLocationX As Integer
     Dim maxEnemyAmount As Integer = 5
+
+    Dim playerMovementDirection As Integer 'This decides which direction the player moved. 
     Sub Main()
         Dim userInput As Integer
         Console.WriteLine("Do you want to see different variations or just one?")
@@ -388,6 +390,7 @@
                     Next
                 End While
                 didUserPressKey = True
+                playerMovementDirection = 1 'This is right.
             ElseIf userInput.Key = ConsoleKey.A Then 'Move Left.
                 While playerLocationFound = False
                     For y = 0 To landscapeSizeY
@@ -407,6 +410,7 @@
                     Next
                 End While
                 didUserPressKey = True
+                playerMovementDirection = 2 'This is Left
             ElseIf userInput.Key = ConsoleKey.S Then 'Move Down.
                 While playerLocationFound = False
                     For y = 0 To landscapeSizeY
@@ -426,6 +430,7 @@
                     Next
                 End While
                 didUserPressKey = True
+                playerMovementDirection = 3 'This is Down
             ElseIf userInput.Key = ConsoleKey.W Then 'Move Up.
                 While playerLocationFound = False
                     For y = 0 To landscapeSizeY
@@ -445,8 +450,13 @@
                     Next
                 End While
                 didUserPressKey = True
+                playerMovementDirection = 4 'This is Up
             End If
         Loop Until didUserPressKey = True
         System.Threading.Thread.Sleep(50) 'This helps to reduce the grid from flickering. 
+    End Sub
+    Sub checkMovement()
+        'For example, we are going to say that colour 2 and colour 4 are places where the player cannot go. 
+
     End Sub
 End Module
