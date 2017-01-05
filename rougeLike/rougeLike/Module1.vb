@@ -454,9 +454,82 @@
             End If
         Loop Until didUserPressKey = True
         System.Threading.Thread.Sleep(50) 'This helps to reduce the grid from flickering. 
+        checkMovement() 'This checks to see if where the player moved to is valid within the constraints of the grid. 
     End Sub
     Sub checkMovement()
         'For example, we are going to say that colour 2 and colour 4 are places where the player cannot go. 
-
+        If playerMovementDirection = 1 Then
+            For y = 0 To landscapeSizeY
+                For x = 0 To landscapeSizeX
+                    If playerArray(y, x) = 6 And gridArray(y, x) = 2 Then
+                        playerArray(y, x) = 0
+                        x = x - 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    ElseIf playerArray(y, x) = 6 And gridArray(y, x) = 4 Then
+                        playerArray(y, x) = 0
+                        x = x - 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    End If
+                Next
+            Next
+        ElseIf playerMovementDirection = 2 Then
+            For y = 0 To landscapeSizeY
+                For x = 0 To landscapeSizeX
+                    If playerArray(y, x) = 6 And gridArray(y, x) = 2 Then
+                        playerArray(y, x) = 0
+                        x = x + 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    ElseIf playerArray(y, x) = 6 And gridArray(y, x) = 4 Then
+                        playerArray(y, x) = 0
+                        x = x + 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    End If
+                Next
+            Next
+        ElseIf playerMovementDirection = 3 Then
+            For y = 0 To landscapeSizeY
+                For x = 0 To landscapeSizeX
+                    If playerArray(y, x) = 6 And gridArray(y, x) = 2 Then
+                        playerArray(y, x) = 0
+                        y = y - 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    ElseIf playerArray(y, x) = 6 And gridArray(y, x) = 4 Then
+                        playerArray(y, x) = 0
+                        y = y - 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    End If
+                Next
+            Next
+        ElseIf playerMovementDirection = 4 Then
+            For y = 0 To landscapeSizeY
+                For x = 0 To landscapeSizeX
+                    If playerArray(y, x) = 6 And gridArray(y, x) = 2 Then
+                        playerArray(y, x) = 0
+                        y = y + 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    ElseIf playerArray(y, x) = 6 And gridArray(y, x) = 4 Then
+                        playerArray(y, x) = 0
+                        y = y + 1
+                        playerArray(y, x) = 6
+                        Console.WriteLine("You cannot move here")
+                        System.Threading.Thread.Sleep(100)
+                    End If
+                Next
+            Next
+        End If
     End Sub
 End Module
